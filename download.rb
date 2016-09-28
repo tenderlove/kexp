@@ -11,12 +11,12 @@ url = URI(LOC)
 http = Net::HTTP.new url.host, url.port
 http.start
 
-[2015].each do |y|
-  [10].each do |m|
+[2016].each do |y|
+  [8].each do |m|
     1.upto(31) do |d|
       url = URI(LOC % [y, m, d, y, m, d])
       response = http.request(Net::HTTP::Get.new(url.request_uri))
-      File.write "#{y}-#{m}-#{i}.json", response.body
+      File.write "#{y}-#{m}-#{d}.json", response.body
     end
   end
 end
